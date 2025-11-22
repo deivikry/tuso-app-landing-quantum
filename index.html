@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUSO - Turismo Sorpresa | Proyecto de Investigación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #1C6E8C 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background-color: #E53935;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #c62828;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 57, 53, 0.6);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: #1E3A8A;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+
+        /* Objetivo Section */
+        .objetivo-card {
+            background: #F5F5F5;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .objetivo-card h3 {
+            color: #E53935;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .objetivo-card p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* Fases Section */
+        .fases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .fase-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #E53935;
+        }
+
+        .fase-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .fase-number {
+            background: #1E3A8A;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .fase-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 15px;
+        }
+
+        .fase-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Beneficios Section */
+        .bg-alternate {
+            background: #1C6E8C;
+            color: white;
+        }
+
+        .bg-alternate .section-title {
+            color: white;
+        }
+
+        .bg-alternate .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .beneficio-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .beneficio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .beneficio-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .beneficio-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 15px;
+        }
+
+        .beneficio-card p {
+            color: #666;
+        }
+
+        /* Equipo Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            justify-items: center;
+        }
+
+        .team-section {
+            margin-bottom: 60px;
+        }
+
+        .team-section-title {
+            color: #E53935;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .team-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #1E3A8A;
+        }
+
+        .team-member {
+            background: #F5F5F5;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #1E3A8A;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            font-weight: 700;
+            overflow: hidden;
+            border: 4px solid #E53935;
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+
+        .team-role {
+            color: #E53935;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1E3A8A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #E53935;
+        }
+
+        /* Footer */
+        footer {
+            background: #1E3A8A;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .university-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            width: 150px;
+            height: 100px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E3A8A;
+            font-weight: 600;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5em;
+            }
+
+            .tagline {
+                font-size: 1.2em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .fases-container,
+            .beneficios-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">TUSO</div>
+            <div class="tagline">Turismo Sorpresa</div>
+            <p class="subtitle">Proyecto de Investigación en Turismo Sostenible y Tecnología</p>
+            <p style="font-size: 1.1em; margin-bottom: 30px;">UNIMINUTO - Ingeniería de Sistemas & Administración Turística y Hotelera</p>
+            <button class="cta-button">Conoce Más</button>
+        </div>
+    </section>
+
+    <!-- Objetivo Section -->
+    <section class="section">
+        <h2 class="section-title">Objetivo del Proyecto</h2>
+        <p class="section-subtitle">Transformando la percepción turística de Ibagué</p>
+        <div class="objetivo-card">
+            <h3>Objetivo General</h3>
+            <p>Desarrollar la aplicación móvil TUSO como una plataforma que fortalezca la visibilidad de destinos turísticos emergentes en Ibagué, fomente el turismo sostenible y potencie el crecimiento económico local mediante estrategias de promoción digital innovadoras.</p>
+        </div>
+    </section>
+
+    <!-- Fases del Proyecto -->
+    <section class="section">
+        <h2 class="section-title">Fases del Proyecto</h2>
+        <p class="section-subtitle">Desarrollo e implementación 2025-2026</p>
+        <div class="fases-container">
+            <div class="fase-card">
+                <div class="fase-number">0</div>
+                <h3>Diagnóstico y Planeación</h3>
+                <p><strong>Periodo:</strong> Q4 2025</p>
+                <p>Levantamiento de datos, entrevistas con prestadores, análisis de encuestas y planificación técnica.</p>
+            </div>
+            <div class="fase-card">
+                <div class="fase-number">1</div>
+                <h3>Diseño Funcional y Técnico</h3>
+                <p>Creación de wireframes, diseño UI/UX, definición del modelo de datos y arquitectura de la aplicación.</p>
+            </div>
+            <div class="fase-card">
+                <div class="fase-number">2</div>
+                <h3>Desarrollo del MVP</h3>
+                <p><strong>Periodo:</strong> Q1-Q2 2026</p>
+                <p>Implementación del backend (Django), frontend (Flutter) e integración con base de datos MySQL.</p>
+            </div>
+            <div class="fase-card">
+                <div class="fase-number">3</div>
+                <h3>Pruebas y Pilotaje</h3>
+                <p><strong>Periodo:</strong> Q2 2026</p>
+                <p>Validación con usuarios reales, pruebas de campo y recolección de feedback para optimización.</p>
+            </div>
+            <div class="fase-card">
+                <div class="fase-number">4</div>
+                <h3>Evaluación y Escalado</h3>
+                <p><strong>Periodo:</strong> Q3 2026</p>
+                <p>Análisis de resultados, evaluación de impacto y planificación para expansión regional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="section bg-alternate">
+        <h2 class="section-title">¿Qué hace especial a TUSO?</h2>
+        <p class="section-subtitle">Innovación, sorpresa y sostenibilidad en una sola plataforma</p>
+        <div class="beneficios-grid">
+            <div class="beneficio-card">
+                <div class="beneficio-icon">🎯</div>
+                <h3>Experiencias Personalizadas</h3>
+                <p>Motor de selección basado en preferencias del usuario: presupuesto, tipo de turismo y distancia.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">🎲</div>
+                <h3>Elemento Sorpresa</h3>
+                <p>Sistema de sorteo aleatorio que incentiva el descubrimiento de lugares poco conocidos.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">🌱</div>
+                <h3>Turismo Sostenible</h3>
+                <p>Promoción de prácticas responsables y conservación de entornos naturales locales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="section">
+        <h2 class="section-title">Equipo de Investigación y Desarrollos</h2>
+        <p class="section-subtitle">Estudiantes y docentes interdisciplinarios de UNIMINUTO</p>
+        
+        <!-- Ingeniería de Sistemas -->
+        <div class="team-section">
+            <h3 class="team-section-title">Ingeniería de Sistemas</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="images\deivi.jpg" alt="Deivi Andrey Rodriguez Hernandez">
+                    </div>
+                    <h3>Deivi Andrey Rodriguez Hernandez</h3>
+                    <p class="team-role">Estudiante</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="images\julian.jpg" alt="Julián Andrés Correa">
+                    </div>
+                    <h3>Julián Andrés Correa</h3>
+                    <p class="team-role">Estudiante</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="" alt="Juan Camilo Ballares">
+                    </div>
+                    <h3>Juan Camilo Ballares</h3>
+                    <p class="team-role">Estudiante</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="" alt="Javier Eduardo Gómez Ovalle">
+                    </div>
+                    <h3>Javier Eduardo Gómez Ovalle</h3>
+                    <p class="team-role">Estudiante</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="https://josecamilo343.github.io/Relaxify/ima/Esteban.jpeg" alt="Esteban Morales">
+                    </div>
+                    <h3>Esteban Morales</h3>
+                    <p class="team-role">Mentor</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+
+                 <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="https://josecamilo343.github.io/Relaxify/ima/Juan%20Carlos.jpeg" alt="Juan Carlos Gonzales">
+                    </div>
+                    <h3>Juan Carlos Gonzales</h3>
+                    <p class="team-role">Mentor</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Administración Turística -->
+        <div class="team-section">
+            <h3 class="team-section-title">Administración Turística y Hotelera</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="ruta/a/foto-estudiante-turismo.jpg" alt="Shindy Peña">
+                    </div>
+                    <h3>Shindy Peña</h3>
+                    <p class="team-role">Estudiante</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="ruta/a/foto-estudiante-turismo.jpg" alt="Jhon Ibañez">
+                    </div>
+                    <h3>Jhon Ibañez</h3>
+                    <p class="team-role">Estudiante</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+
+
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <img src="ruta/a/foto-docente-turismo.jpg" alt="Nombre Docente Turismo">
+                    </div>
+                    <h3>[Nombre Docente]</h3>
+                    <p class="team-role">Mentora</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">✉</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="university-logos">
+            <a href="https://www.uniminuto.edu/" target="_blank" class="logo-link">
+                <div class="logo-placeholder">
+                    <img src="ruta/a/logo-uniminuto.png" alt="Logo UNIMINUTO">
+                </div>
+            </a>
+            <a href="https://www.uniminuto.edu/programas/ingenieria-de-sistemas" target="_blank" class="logo-link">
+                <div class="logo-placeholder">
+                    <img src="ruta/a/logo-ingenieria.png" alt="Logo Ingeniería de Sistemas">
+                </div>
+            </a>
+            <a href="https://www.uniminuto.edu/programas/turismo" target="_blank" class="logo-link">
+                <div class="logo-placeholder">
+                    <img src="ruta/a/logo-turismo.png" alt="Logo Administración Turística">
+                </div>
+            </a>
+        </div>
+        <div class="footer-info">
+            <p><strong>Proyecto TUSO - Turismo Sorpresa</strong></p>
+            <p>Corporación Universitaria Minuto de Dios - UNIMINUTO</p>
+            <p>Ibagué, Tolima - Colombia | 2025-2026</p>
+            <p style="margin-top: 20px; opacity: 0.8;">Proyecto de investigación interdisciplinario desarrollado en el semillero (Quantum)</p>
+        </div>
+    </footer>
+</body>
+</html>
