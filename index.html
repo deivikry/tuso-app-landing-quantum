@@ -258,11 +258,79 @@
             border-radius: 15px;
             text-align: center;
             transition: transform 0.3s ease;
+            position: relative;
         }
 
         .team-member:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .team-member-content {
+            position: relative;
+        }
+
+        .team-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease, opacity 0.4s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .team-details.active {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        .team-details-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            border-left: 3px solid #E53935;
+        }
+
+        .team-details-content h4 {
+            color: #1E3A8A;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .team-details-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .team-details-content strong {
+            color: #E53935;
+        }
+
+        .show-more-btn {
+            background: transparent;
+            border: 2px solid #1E3A8A;
+            color: #1E3A8A;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .show-more-btn:hover {
+            background: #1E3A8A;
+            color: white;
+        }
+
+        .show-more-btn.active {
+            background: #E53935;
+            border-color: #E53935;
+            color: white;
         }
 
         .team-avatar {
@@ -483,7 +551,7 @@
 
     <!-- Equipo -->
     <section class="section">
-        <h2 class="section-title">Equipo de Investigación y Desarrollos</h2>
+        <h2 class="section-title">Equipo de Investigación</h2>
         <p class="section-subtitle">Estudiantes y docentes interdisciplinarios de UNIMINUTO</p>
         
         <!-- Ingeniería de Sistemas -->
@@ -491,76 +559,156 @@
             <h3 class="team-section-title">Ingeniería de Sistemas</h3>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="images\deivi.jpg" alt="Deivi Andrey Rodriguez Hernandez">
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="images\deivi.jpg" alt="Deivi Andrey Rodriguez Hernandez">
+                        </div>
+                        <h3>Deivi Andrey Rodriguez Hernandez</h3>
+                        <p class="team-role">Estudiante</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>Desarrollador Full Stack</strong> - Responsable de la arquitectura técnica y desarrollo del backend con Django.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Estudiante de Ingeniería de Sistemas enfocado en desarrollo de aplicaciones móviles y web. Participa en el diseño de la base de datos, implementación de API REST y coordinación del equipo técnico.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Deivi Andrey Rodriguez Hernandez</h3>
-                    <p class="team-role">Estudiante</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="images\julian.jpg" alt="Julián Andrés Correa">
+                        </div>
+                        <h3>Julián Andrés Correa</h3>
+                        <p class="team-role">Estudiante</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>[Tu rol aquí]</strong> - Descripción breve del rol principal.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Descripción detallada de las responsabilidades y contribuciones al proyecto.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="images\julian.jpg" alt="Julián Andrés Correa">
-                    </div>
-                    <h3>Julián Andrés Correa</h3>
-                    <p class="team-role">Estudiante</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="" alt="Juan Camilo Ballares">
-                    </div>
-                    <h3>Juan Camilo Ballares</h3>
-                    <p class="team-role">Estudiante</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="" alt="Javier Eduardo Gómez Ovalle">
-                    </div>
-                    <h3>Javier Eduardo Gómez Ovalle</h3>
-                    <p class="team-role">Estudiante</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="images\camilo.jpg" alt="Juan Camilo Ballares">
+                        </div>
+                        <h3>Juan Camilo Ballares</h3>
+                        <p class="team-role">Estudiante</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>[Tu rol aquí]</strong> - Descripción breve del rol principal.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Descripción detallada de las responsabilidades y contribuciones al proyecto.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="https://josecamilo343.github.io/Relaxify/ima/Esteban.jpeg" alt="Esteban Morales">
-                    </div>
-                    <h3>Esteban Morales</h3>
-                    <p class="team-role">Mentor</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="ruta/a/foto-estudiante-sistemas2.jpg" alt="Javier Eduardo Gómez Ovalle">
+                        </div>
+                        <h3>Javier Eduardo Gómez Ovalle</h3>
+                        <p class="team-role">Estudiante</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>[Tu rol aquí]</strong> - Descripción breve del rol principal.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Descripción detallada de las responsabilidades y contribuciones al proyecto.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                 <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="https://josecamilo343.github.io/Relaxify/ima/Juan%20Carlos.jpeg" alt="Juan Carlos Gonzales">
-                    </div>
-                    <h3>Juan Carlos Gonzales</h3>
-                    <p class="team-role">Mentor</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
+
+                <div class="team-member">
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="https://josecamilo343.github.io/Relaxify/ima/Juan%20Carlos.jpeg" alt="Juan Carlos Gonzales">
+                        </div>
+                        <h3>Juan Carlos Gonzales</h3>
+                        <p class="team-role">Mentor</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>Mentor Técnico</strong> - Asesor en arquitectura de software y metodología de desarrollo.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Docente del programa de Ingeniería de Sistemas con experiencia en desarrollo de aplicaciones y gestión de proyectos tecnológicos.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="team-member">
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="https://josecamilo343.github.io/Relaxify/ima/Esteban.jpeg" alt="Esteban Morales">
+                        </div>
+                        <h3>Esteban Morales</h3>
+                        <p class="team-role">Mentor</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>Mentor Técnico</strong> - Asesor en arquitectura de software y metodología de desarrollo.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Docente del programa de Ingeniería de Sistemas con experiencia en desarrollo de aplicaciones y gestión de proyectos tecnológicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
@@ -568,40 +716,82 @@
         <div class="team-section">
             <h3 class="team-section-title">Administración Turística y Hotelera</h3>
             <div class="team-grid">
+
+                
                 <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="ruta/a/foto-estudiante-turismo.jpg" alt="Shindy Peña">
-                    </div>
-                    <h3>Shindy Peña</h3>
-                    <p class="team-role">Estudiante</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="ruta/a/foto-estudiante-turismo.jpg" alt="Jhon Ibañez">
+                        </div>
+                        <h3>Jhon Ibañez</h3>
+                        <p class="team-role">Estudiante</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>[Tu rol aquí]</strong> - Descripción breve del rol principal.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Descripción detallada de las responsabilidades y contribuciones al proyecto.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="ruta/a/foto-estudiante-turismo.jpg" alt="Jhon Ibañez">
-                    </div>
-                    <h3>Jhon Ibañez</h3>
-                    <p class="team-role">Estudiante</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="ruta/a/foto-estudiante-turismo.jpg" alt="Shindy Peña">
+                        </div>
+                        <h3>Shindy Peña</h3>
+                        <p class="team-role">Estudiante</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>[Tu rol aquí]</strong> - Descripción breve del rol principal.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Descripción detallada de las responsabilidades y contribuciones al proyecto.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
 
+
                 <div class="team-member">
-                    <div class="team-avatar">
-                        <img src="ruta/a/foto-docente-turismo.jpg" alt="Nombre Docente Turismo">
-                    </div>
-                    <h3>[Nombre Docente]</h3>
-                    <p class="team-role">Mentora</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">✉</a>
+                    <div class="team-member-content">
+                        <div class="team-avatar">
+                            <img src="ruta/a/foto-docente-turismo.jpg" alt="Nombre Docente Turismo">
+                        </div>
+                        <h3>[Nombre Docente]</h3>
+                        <p class="team-role">Mentora</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">✉</a>
+                        </div>
+                        <button class="show-more-btn" onclick="toggleDetails(this)">Ver más</button>
+                        
+                        <div class="team-details">
+                            <div class="team-details-content">
+                                <h4>Rol en el proyecto:</h4>
+                                <p><strong>Mentora en Turismo Sostenible</strong> - Asesora en estrategias de promoción turística y desarrollo sostenible.</p>
+                                
+                                <h4>Descripción:</h4>
+                                <p>Docente del programa de Administración Turística y Hotelera con experiencia en gestión de destinos y turismo comunitario.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -634,5 +824,33 @@
             <p style="margin-top: 20px; opacity: 0.8;">Proyecto de investigación interdisciplinario desarrollado en el semillero (Quantum)</p>
         </div>
     </footer>
+
+    <script>
+        function toggleDetails(button) {
+            const teamMember = button.closest('.team-member-content');
+            const details = teamMember.querySelector('.team-details');
+            const isActive = details.classList.contains('active');
+            
+            // Cerrar todos los demás detalles abiertos
+            document.querySelectorAll('.team-details.active').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            document.querySelectorAll('.show-more-btn.active').forEach(btn => {
+                btn.classList.remove('active');
+                btn.textContent = 'Ver más';
+            });
+            
+            // Toggle del detalle actual
+            if (!isActive) {
+                details.classList.add('active');
+                button.classList.add('active');
+                button.textContent = 'Ver menos';
+            } else {
+                details.classList.remove('active');
+                button.classList.remove('active');
+                button.textContent = 'Ver más';
+            }
+        }
+    </script>
 </body>
 </html>
